@@ -25,7 +25,7 @@ namespace LeontyevStrategy
             List<Wishlist> teamLeadsWishlists, List<Wishlist> juniorsWishlists)
         {
             int n = teamLeads.Count;
-            var desireMatrix = new int[n, n];
+            var costMatrix = new int[n, n];
 
             for (int i = 0; i < n; i++)
             {
@@ -37,17 +37,17 @@ namespace LeontyevStrategy
                     var junior = juniors[j];
                     var juniorWishlist = juniorsWishlists.FirstOrDefault(w => w.EmployeeId == junior.Id);
 
-                    int teamLeadSatisfaction = n - Array.IndexOf(teamLeadWishlist!.DesiredEmployees, junior.Id);
+                    double teamLeadSatisfaction = (n - Array.IndexOf(teamLeadWishlist!.DesiredEmployees, junior.Id)) / (double)n;
 
-                    int juniorSatisfaction = n - Array.IndexOf(juniorWishlist!.DesiredEmployees, teamLead.Id);
+                    double juniorSatisfaction = (n - Array.IndexOf(juniorWishlist!.DesiredEmployees, teamLead.Id)) / (double)n;
 
-                    int teamSatisfaction = teamLeadSatisfaction + juniorSatisfaction;
+                    double teamSatisfaction = 1.0 / (teamLeadSatisfaction + juniorSatisfaction + 2);  
 
-                    desireMatrix[i, j] = teamSatisfaction;
+                    costMatrix[i, j] = (int)(teamSatisfaction * 1000);  
                 }
             }
 
-            return desireMatrix;
+            return costMatrix;
         }
 
         private List<int> SolveUsingGreedyOptimization(int[,] desireMatrix)
@@ -59,12 +59,12 @@ namespace LeontyevStrategy
 
             for (int i = 0; i < n; i++)
             {
-                int bestCost = 0;
+                int bestCost = int.MaxValue;
                 int bestJuniorIndex = -1;
 
                 for (int j = 0; j < n; j++)
                 {
-                    if (!assignedJuniors.Contains(j) && desireMatrix[i, j] > bestCost)
+                    if (!assignedJuniors.Contains(j) && desireMatrix[i, j] < bestCost)
                     {
                         bestCost = desireMatrix[i, j];
                         bestJuniorIndex = j;
@@ -87,7 +87,7 @@ namespace LeontyevStrategy
         {
             int n = desireMatrix.GetLength(0);
             bool improved = true;
-            int maxIterations = 1000;
+            int maxIterations = 1000; 
             int iteration = 0;
 
             while (improved && iteration < maxIterations)
@@ -106,7 +106,7 @@ namespace LeontyevStrategy
                             newResult[i] = j;
                             newResult[j] = temp;
 
-                            if (EvaluateCost(desireMatrix, newResult) > EvaluateCost(desireMatrix, result))
+                            if (EvaluateCost(desireMatrix, newResult) < EvaluateCost(desireMatrix, result))
                             {
                                 result = newResult;
                                 improved = true;
