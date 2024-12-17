@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "xmTcOUodwfA=",
+  "success": true,
+  "projectFilePath": "/Users/deadrian/Desktop/Hackathon_sharp/LeontyevStrategy/Nsu.HackathonProblem.Contracts/Nsu.HackathonProblem.Contracts/Nsu.HackathonProblem.Contracts.csproj",
+  "expectedPackageFiles": [
+    "/Users/deadrian/.nuget/packages/microsoft.netcore.app.ref/8.0.11/microsoft.netcore.app.ref.8.0.11.nupkg.sha512",
+    "/Users/deadrian/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.11/microsoft.aspnetcore.app.ref.8.0.11.nupkg.sha512"
+  ],
+  "logs": []
+}
