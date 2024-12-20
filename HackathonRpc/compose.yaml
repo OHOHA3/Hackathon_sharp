@@ -1,0 +1,144 @@
+﻿services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: user
+      RABBITMQ_DEFAULT_PASS: password
+    healthcheck:
+      test: [ "CMD", "rabbitmqctl", "status" ]
+      interval: 10s
+      retries: 5
+      start_period: 30s
+      timeout: 10s
+  teamlead-1:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: teamLead
+      APP_ID: 0
+    depends_on:
+       rabbitmq:
+         condition: service_healthy
+  teamlead-2:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: teamLead
+      APP_ID: 1
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+  teamlead-3:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: teamLead
+      APP_ID: 2
+    depends_on:
+       rabbitmq:
+         condition: service_healthy
+  teamlead-4:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: teamLead
+      APP_ID: 3
+    depends_on:
+       rabbitmq:
+         condition: service_healthy
+  teamlead-5:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: teamLead
+      APP_ID: 4
+    depends_on:
+       rabbitmq:
+         condition: service_healthy
+  junior-1:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: junior
+      APP_ID: 0
+    depends_on:
+       rabbitmq:
+         condition: service_healthy
+  junior-2:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: junior
+      APP_ID: 1
+    depends_on:
+       rabbitmq:
+         condition: service_healthy
+  junior-3:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: junior
+      APP_ID: 2
+    depends_on:
+       rabbitmq:
+         condition: service_healthy
+  junior-4:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: junior
+      APP_ID: 3
+    depends_on:
+       rabbitmq:
+         condition: service_healthy
+  junior-5:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: junior
+      APP_ID: 4
+    depends_on:
+       rabbitmq:
+         condition: service_healthy
+
+  hrdirector:
+    image: hrdirector
+    build:
+      context: .
+      dockerfile: HRDirector/Dockerfile
+    depends_on:
+       rabbitmq:
+         condition: service_healthy
+
+  hrmanager:
+    image: hrmanager
+    build:
+      context: .
+      dockerfile: HRManager/Dockerfile
+    depends_on:
+       rabbitmq:
+         condition: service_healthy

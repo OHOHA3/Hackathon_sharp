@@ -1,0 +1,125 @@
+﻿services:
+  teamlead-1:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: teamLead
+      APP_ID: 0
+    depends_on:
+      - hrmanager
+      - hrdirector
+  teamlead-2:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: teamLead
+      APP_ID: 1
+    depends_on:
+      - hrmanager
+      - hrdirector
+  teamlead-3:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: teamLead
+      APP_ID: 2
+    depends_on:
+      - hrmanager
+      - hrdirector
+  teamlead-4:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: teamLead
+      APP_ID: 3
+    depends_on:
+      - hrmanager
+      - hrdirector
+  teamlead-5:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: teamLead
+      APP_ID: 4
+    depends_on:
+      - hrmanager
+      - hrdirector
+  junior-1:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: junior
+      APP_ID: 0
+    depends_on:
+      - hrmanager
+      - hrdirector
+  junior-2:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: junior
+      APP_ID: 1
+    depends_on:
+      - hrmanager
+      - hrdirector
+  junior-3:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: junior
+      APP_ID: 2
+    depends_on:
+      - hrmanager
+      - hrdirector
+  junior-4:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: junior
+      APP_ID: 3
+    depends_on:
+      - hrmanager
+      - hrdirector
+  junior-5:
+    image: employee
+    build:
+      context: .
+      dockerfile: Employee/Dockerfile
+    environment:
+      APP_TYPE: junior
+      APP_ID: 4
+    depends_on:
+      - hrmanager
+      - hrdirector
+
+  hrdirector:
+    image: hrdirector
+    build:
+      context: .
+      dockerfile: HRDirector/Dockerfile
+
+  hrmanager:
+    image: hrmanager
+    build:
+      context: .
+      dockerfile: HRManager/Dockerfile
+    depends_on:
+      - hrdirector

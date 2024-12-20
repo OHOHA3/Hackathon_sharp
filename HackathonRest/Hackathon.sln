@@ -1,0 +1,33 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Employee", "Employee\Employee.csproj", "{1655AAD7-6182-4E81-88A7-A480C7A573F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HrManager", "HrManager\HrManager.csproj", "{98A8115A-F471-44D5-B838-DA4A5089EB69}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HrDirector", "HrDirector\HrDirector.csproj", "{DB83AC85-EB23-4177-8DF1-DB1B32FBA3AC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{577442FC-A185-4684-8D80-FB5775AB4B10}"
+	ProjectSection(SolutionItems) = preProject
+		compose.yaml = compose.yaml
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1655AAD7-6182-4E81-88A7-A480C7A573F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1655AAD7-6182-4E81-88A7-A480C7A573F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1655AAD7-6182-4E81-88A7-A480C7A573F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1655AAD7-6182-4E81-88A7-A480C7A573F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{98A8115A-F471-44D5-B838-DA4A5089EB69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{98A8115A-F471-44D5-B838-DA4A5089EB69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{98A8115A-F471-44D5-B838-DA4A5089EB69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{98A8115A-F471-44D5-B838-DA4A5089EB69}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB83AC85-EB23-4177-8DF1-DB1B32FBA3AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB83AC85-EB23-4177-8DF1-DB1B32FBA3AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB83AC85-EB23-4177-8DF1-DB1B32FBA3AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB83AC85-EB23-4177-8DF1-DB1B32FBA3AC}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
